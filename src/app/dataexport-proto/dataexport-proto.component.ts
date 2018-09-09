@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { QueriesService } from '../services/queries/queries.service';
 import { Parse } from 'parse'
 
 @Component({
@@ -13,26 +14,18 @@ export class DataexportProtoComponent implements OnInit {
 
   dataArray = [];
 
-  constructor() { 
-    this.parseInitialize();
+  constructor(public query:QueriesService) { 
     this.setup().then(()=>{
-      console.log(this.dataArray);
+      console.log(query.hello());
     });
   }
 
   ngOnInit() {
   }
 
-  parseInitialize() {
-    Parse.initialize(this.parseAppId, this.parseJavascriptKey);
-    Parse.serverURL = this.parseServerUrl;
-  }
 
   setup(){
-    var q = new Parse.Query("SurveyData");
-    q.equalTo("surveyingOrganization", "Puente");
-
-    return q.find().then((results) => {
+    return this.query.listAllPatients().then((results) => {
       for (var i = 0; i < results.length; i++){
         var data = results[i];
         

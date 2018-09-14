@@ -1,0 +1,13 @@
+{
+  "name": "Puente - Data Collection",
+  "short_name": "Puente",
+  "start_url": "index.html",
+  "display": "fullscreen",
+  "icons": [{
+    "src": "assets/images/puente.png",
+    "sizes": "512x512",
+    "type": "image/png"
+  }],
+  "background_color": "#212121",
+  "theme_color": "#f8af1e"
+}

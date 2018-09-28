@@ -1,0 +1,28 @@
+
+<h1>
+  Number of Community IDs Checked: {{ numberOfIds }}
+</h1>
+
+<h4>
+    Number of Matching Records in Environmental History Form: {{ numberofMatchingIds }}
+</h4>
+
+<table>
+  <tr>
+    <th>UserID</th>
+    <th>Latrine Access</th>
+    <th>Floor Condition</th>
+    <th>Roof Condition</th>
+    <th>Clinic Access</th>
+    <th>Water Access</th>
+    
+  </tr>
+  <tr *ngFor="let user of arrayOfMatchEnvFiles">
+    <th>{{ user.id }} </th>
+    <th>{{ user.get('latrineAccess') }} </th>
+    <th>{{ user.get('conditionoFloorinyourhouse') }} </th>
+    <th>{{ user.get('conditionoRoofinyourhouse') }} </th>
+    <th>{{ user.get('clinicAccess') }} </th>
+    <th>{{ user.get('waterAccess') }} </th>
+  </tr>
+</table>

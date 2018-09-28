@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { QueriesService } from '../services/queries/queries.service';
-import { Parse } from 'parse'
+import { QueriesService } from '../../services/queries/queries.service';
 
 @Component({
   selector: 'app-dataexport-proto',
@@ -8,9 +7,9 @@ import { Parse } from 'parse'
   styleUrls: ['./dataexport-proto.component.css']
 })
 export class DataexportProtoComponent implements OnInit {
-  private parseAppId: string = 'vBdTHqQU31IyLW5uYRDIWb8Ew8zCZGBzMqChugjr';
-  private parseJavascriptKey: string = 'jFWiqliNRHXiH72J9kiotL8m0EuSdry1yFIiYlad';
-  private parseServerUrl: string = 'https://parseapi.back4app.com/';
+  //private parseAppId: string = 'vBdTHqQU31IyLW5uYRDIWb8Ew8zCZGBzMqChugjr';
+  //private parseJavascriptKey: string = 'jFWiqliNRHXiH72J9kiotL8m0EuSdry1yFIiYlad';
+  //private parseServerUrl: string = 'https://parseapi.back4app.com/';
 
   dataArray = [];
 

@@ -13,10 +13,16 @@ export class AnalysisComponent implements OnInit {
   numberofMatchingIds;
 
   latrineAccessYes = 0;
-  latrineAccessNo = 0;
+  latrineAccessNo = 0 + 11;
 
   poorFloorCondition = 0;
   poorRoofCondition = 0;
+
+  trashPerWeek = [];
+  trashAverage;
+  trash1aweek = 0;
+  trash2aweek = 0;
+  trash3omore = 0;
 
   constructor(private query:QueriesService) { 
     this.setup();
@@ -74,9 +80,36 @@ export class AnalysisComponent implements OnInit {
             this.poorRoofCondition+=1;
           }
         }
-        
-        
 
+        
+        //Calculate Average Amount of Times Trash is collected
+        for(let i=0; i<this.arrayOfMatchEnvFiles.length; i++){
+          if (this.arrayOfMatchEnvFiles[i].get('timesperweektrashcollected')>0) {
+            let trashNumber = this.arrayOfMatchEnvFiles[i].get('timesperweektrashcollected');
+            this.trashPerWeek.push(trashNumber);
+            //total += trashNumber;
+            
+            if (trashNumber == 1){
+              this.trash1aweek +=1;
+            }
+
+            else if (trashNumber == 2){
+              this.trash2aweek +=1;
+            }
+
+            else if (trashNumber > 2){
+              this.trash3omore +=1;
+            }
+
+          }
+
+          
+        }
+        
+        const average = array => array.reduce( ( sum, element ) => sum + element) / array.length;
+    
+        this.trashAverage = average( this.trashPerWeek );
+    
       })
 
 

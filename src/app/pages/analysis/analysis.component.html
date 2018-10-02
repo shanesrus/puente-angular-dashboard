@@ -9,6 +9,7 @@
 
 
 <table>
+  <!--Latrine Access-->
   <thead>
     <h4>Latrine Access</h4>
     <tr>
@@ -23,6 +24,7 @@
     </tr>
   </tbody>
 
+  <!--Roof and Floor-->
   <thead>
     <h4>Poor Roof and Floor Conditions</h4>
     <tr>
@@ -38,6 +40,25 @@
   </tbody>
 </table>
 
+<table>
+  <thead>
+    <tr>
+      <th>Average Trash Per week</th>
+      <th>Trash Once a Week</th>
+      <th>Trash Twice a week</th>
+      <th>Trash Thrice or More a week</th>
+    </tr>
+
+  </thead>
+  <tbody>
+    <tr>
+      <th>{{trashAverage}}</th>
+      <th>{{trash1aweek}}</th>
+      <th>{{trash2aweek}}</th>
+      <th>{{trash3omore}}</th>
+    </tr>
+  </tbody>
+</table>
 
 <table>
   <tr>
@@ -47,6 +68,7 @@
     <th>Roof Condition</th>
     <th>Clinic Access</th>
     <th>Water Access</th>
+    <th>Times/Week Trash Collected</th>
     
   </tr>
   <tr *ngFor="let user of arrayOfMatchEnvFiles">
@@ -56,5 +78,6 @@
     <th>{{ user.get('conditionoRoofinyourhouse') }} </th>
     <th>{{ user.get('clinicAccess') }} </th>
     <th>{{ user.get('waterAccess') }} </th>
+    <th>{{ user.get('timesperweektrashcollected') }} </th>
   </tr>
 </table>
